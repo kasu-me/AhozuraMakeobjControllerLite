@@ -1,0 +1,41 @@
+﻿<Window x:Class="MakeobjControllerLite.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MakeobjControllerLite"
+        mc:Ignorable="d"
+        Title="Ahozura Makeobj Controller Lite の設定" Width="350" ResizeMode="NoResize" Height="404">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="pakの保存先" HorizontalAlignment="Left" Height="137" Margin="10,1,0,0" VerticalAlignment="Top" Width="311">
+            <StackPanel HorizontalAlignment="Left" Height="139" Margin="10,7,-15,-43" VerticalAlignment="Top" Width="304">
+                <RadioButton x:Name="pak_dir_dat" Content="datと同じディレクトリ" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Width="116" Checked="pak_button_Checked"/>
+                <RadioButton x:Name="pak_dir_makeobj" Content="makeobjと同じディレクトリ" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Width="145" Checked="pak_button_Checked"/>
+                <RadioButton x:Name="pak_dir_etc" Content="指定ディレクトリ" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Width="94" Checked="pak_button_Checked"/>
+                <TextBox x:Name="folderlabel" Height="23" TextWrapping="NoWrap" Margin="0,0,24,0" TextChanged="folderlabel_TextChanged" IsEnabled="False"/>
+                <Button x:Name="setdir" Content="ディレクトリを指定" Margin="0,0,159,0" Click="OnSelectOutputFolderButtonClick" IsEnabled="False"/>
+                <CheckBox x:Name="pak_useProjectDirectory" Content="プロジェクト利用時はプロジェクトのディレクトリに保存" Checked="pak_useProjectDirectory_Checked" Unchecked="pak_useProjectDirectory_Checked" IsThreeState="False"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="入力の保存" HorizontalAlignment="Left" Height="68" Margin="10,147,0,0" VerticalAlignment="Top" Width="311">
+            <StackPanel HorizontalAlignment="Left" Height="104" Margin="10,7,-15,-8" VerticalAlignment="Top" Width="304">
+                <RadioButton x:Name="sve_true" Content="入力したdat名･pak名を次回起動時も使用する" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Checked="confirm_fileExists_button_Checked"/>
+                <RadioButton x:Name="sve_false" Content="毎回手動で入力する" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Checked="confirm_fileExists_button_Checked"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="プロジェクト" HorizontalAlignment="Left" Height="98" Margin="10,224,0,0" VerticalAlignment="Top" Width="311">
+            <StackPanel HorizontalAlignment="Left" Height="104" Margin="10,7,-15,-8" VerticalAlignment="Top" Width="304">
+                <RadioButton x:Name="project_load_pak_true" Content="プロジェクトファイル読込時にpak作成も行う" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Checked="ahp_and_pak_button_Checked"/>
+                <RadioButton x:Name="project_load_pak_sys" Content="関連付けファイルとして起動した時のみpak作成を行う" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Checked="ahp_and_pak_button_Checked"/>
+                <RadioButton x:Name="project_load_pak_false" Content="プロジェクトファイル読込時にpak作成を行わない" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.318,-1" Height="15" Checked="ahp_and_pak_button_Checked"/>
+                <CheckBox x:Name="project_absolute_path" Content="dat名を絶対パスで記録" Checked="project_useAbsolutePath_Checked" Unchecked="project_useAbsolutePath_Checked" IsThreeState="False"/>
+            </StackPanel>
+        </GroupBox>
+        <Button Content="保存" HorizontalAlignment="Left" Margin="157,333,0,0" VerticalAlignment="Top" Width="75" Click="OnSaveButtonClick" Height="20"/>
+        <Button Content="キャンセル" HorizontalAlignment="Left" Margin="245,333,0,0" VerticalAlignment="Top" Width="75" Click="OnCancelButtonClick" Height="20" RenderTransformOrigin="0.773,0.55"/>
+
+    </Grid>
+</Window>
